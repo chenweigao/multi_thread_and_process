@@ -4,14 +4,14 @@
 #include <unistd.h>
 #include <linux/stat.h>
 
-#define FIFO_FILR "MYFIFO"
+#define FIFO_FILE "MYFIFO"
 
 int main()
 {
     FILE *fp;
     char readbuf[80];
 
-    if((mkfifo(FIFO_FILR, 0666) < 0))
+    if((mkfifo(FIFO_FILE, 0666) < 0))
     {
         printf("mkfido: File Exists.\n");
     }
@@ -24,7 +24,7 @@ int main()
 
     while(1)
     {
-        if((fp = fopen(FIFO_FILR, "r")) == NULL)
+        if((fp = fopen(FIFO_FILE, "r")) == NULL)
         {
             printf("fopem failed.\n");
             return -1;

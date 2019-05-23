@@ -3,12 +3,15 @@ import os
 import random
 import time
 
+
 def down_task(filename):
     print("starting downloading...pid is %d" % os.getpid())
     print("starting downloading file %s" % filename)
     time_to_download = random.randint(5, 10)
     time.sleep(time_to_download)
-    print("Succed to download %s, cost %d seconds" % (filename, time_to_download))
+    print("Succed to download %s, cost %d seconds" %
+          (filename, time_to_download))
+
 
 def main():
     start = time.time()
@@ -20,6 +23,7 @@ def main():
     p2.join()
     end = time.time()
     print("p1 + p2 costs %d seconds" % (end - start))
-    
+
+
 if __name__ == "__main__":
     main()
